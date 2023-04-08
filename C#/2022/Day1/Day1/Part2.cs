@@ -14,11 +14,8 @@ namespace Day1
             IEnumerator<int> enumerator = totalCaloriesPerElf.Reverse().GetEnumerator();
 
             int sum = 0;
-            for (int i = 0; i < 3 && enumerator.MoveNext(); i++)
-            {
-                sum += enumerator.Current;
-            }
-        
+            for (int i = 0; i < 3 && enumerator.MoveNext(); i++) sum += enumerator.Current;
+            
             return sum;
         }
 
@@ -32,10 +29,7 @@ namespace Day1
             SortedSet<int> totalCaloriesPerElf = new SortedSet<int>();
             string[] allElfCaloires = input.Split(new string[] { "\r\n\r\n", "\n\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (string elfCalories in allElfCaloires)
-            {
-                totalCaloriesPerElf.Add(getSumForElf(elfCalories));
-            }
+            foreach (string elfCalories in allElfCaloires) totalCaloriesPerElf.Add(getSumForElf(elfCalories));
 
             return totalCaloriesPerElf;
         }

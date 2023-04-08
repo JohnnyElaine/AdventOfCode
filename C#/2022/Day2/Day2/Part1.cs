@@ -11,10 +11,7 @@ namespace Day2
         public static int Solve(List<Round> rounds)
         {
             int sum = 0;
-           for (int i = 0; i < rounds.Count; i++)
-            {
-                sum += rounds[i].eval();
-            }
+            for (int i = 0; i < rounds.Count; i++) sum += rounds[i].eval1();
 
             return sum;
         }

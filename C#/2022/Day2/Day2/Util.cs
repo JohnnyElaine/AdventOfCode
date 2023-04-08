@@ -11,13 +11,13 @@ namespace Day2
     internal class Util
     {
 
-        static string execPath = Assembly.GetEntryAssembly().Location; // Get the path to the current executable
-        static string execFolderPath = Path.GetDirectoryName(execPath);
-        static string resourcesPath = System.IO.Path.Combine(execFolderPath, @"..\..\..\Resources"); // Go up 3 Levels to the Resources Folder
+        static string execPath = Assembly.GetEntryAssembly().Location; // Get the path to the executable
+        static string execFolderPath = Path.GetDirectoryName(execPath); // Get the folder of the executable
+        static string resourcesPath = Path.Combine(execFolderPath, @"..\..\..\Resources"); // Go up 3 Levels to the Resources Folder
 
         public static List<Round> readInput(string filename)
         {
-            string filePath = System.IO.Path.Combine(resourcesPath, filename);
+            string filePath = Path.Combine(resourcesPath, filename);
 
             List<Round> rounds = new List<Round>();
             using (StreamReader reader = new StreamReader(filePath))
@@ -37,6 +37,11 @@ namespace Day2
             return rounds;
         }
 
+        /// <summary>
+        /// Represents a move (A/B/C) & (X/Y/Z) as an integer (1/2/3)
+        /// </summary>
+        /// <param name="move"></param>
+        /// <returns></returns>
         private static int convertMoveToInt(char  move)
         {
             if (move == 'A' || move == 'X')

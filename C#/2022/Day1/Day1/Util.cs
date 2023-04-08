@@ -13,10 +13,9 @@ namespace Day1
         {
             string execPath = Assembly.GetEntryAssembly().Location; // Get the path to the current executable
             string execFolderPath = Path.GetDirectoryName(execPath);
-            string resourcesPath = System.IO.Path.Combine(execFolderPath, @"..\..\..\Resources"); // Go up 3 Levels to the Resources Folder
+            string resourcesPath = Path.Combine(execFolderPath, @"..\..\..\Resources"); // Go up 3 Levels to the Resources Folder
 
-            string filePath = System.IO.Path.Combine(resourcesPath, filename);
-
+            string filePath = Path.Combine(resourcesPath, filename);
 
             return File.ReadAllText(filePath);
         }
